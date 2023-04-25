@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/aspirantmpm.github.io/test/static/css/main.7acaea2f.css",
+    "main.js": "/aspirantmpm.github.io/test/static/js/main.c3063ec6.js",
+    "index.html": "/aspirantmpm.github.io/test/index.html",
+    "main.7acaea2f.css.map": "/aspirantmpm.github.io/test/static/css/main.7acaea2f.css.map",
+    "main.c3063ec6.js.map": "/aspirantmpm.github.io/test/static/js/main.c3063ec6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.c3063ec6.js"
+  ]
+}
