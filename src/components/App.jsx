@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchUsers } from 'redux/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import * as operations from 'redux/operations';
+import { getUsers } from 'redux/selectors';
 
 export const App = () => {
-
   const dispatch = useDispatch();
+  const users = useSelector(getUsers);
+  console.log(users);
   useEffect(() => {
-    dispatch(fetchUsers());
+    dispatch(operations.fetchUsers());
   }, [dispatch]);
 
+  
 
   return (
     <div
@@ -21,7 +24,11 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      React homework template
+      <ul>
+        {/* {users.map(users => (
+          <li users={users} key={users.id} />
+        ))} */}
+      </ul>
     </div>
   );
 };
