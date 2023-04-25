@@ -1,30 +1,22 @@
-// import { createSlice } from '@reduxjs/toolkit';
-// import { fetchUsers } from './operations';
+import { createSlice } from '@reduxjs/toolkit';
 
-// const handlePending = state => {
-//   state.isLoading = true;
-// };
-// const handleRejected = (state, action) => {
-//   state.isLoading = false;
-//   state.error = action.payload;
-// };
+// const initialState = { value: 0 };
 
-// export const usersSlice = createSlice({
-//   name: 'users',
-//   initialState: { items: [], isLoading: false, error: null },
+const usersSlice = createSlice({
+  name: 'users',
+  initialState: {entities: [], isLoading: false, error: null,},
+  extraReducers: {
+    increment(state) {
+      state.value++;
+    },
+    decrement(state) {
+      state.value--;
+    },
+    incrementByAmount(state, action) {
+      state.value += action.payload;
+    },
+  },
+});
 
-//   extraReducers: {
-//     [fetchUsers.pending]: handlePending,
-//     [fetchUsers.rejected]: handleRejected,
-
-//     [fetchUsers.fulfilled](state, action) {
-//       state.isLoading = false;
-//       state.error = null;
-//       state.items = action.payload;
-//     },
-
-    
-//   },
-// });
-
-// export const usersReducer = usersSlice.reducer;
+export const { increment, decrement, incrementByAmount } = usersSlice.actions;
+export default usersSlice.reducer;

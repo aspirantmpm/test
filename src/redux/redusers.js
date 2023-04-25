@@ -1,19 +1,20 @@
 import { combineReducers, createReducer } from "@reduxjs/toolkit";
-import * as actions from './actions';
+import { fetchUsers } from './operations'
+// import * as actions from './actions';
 
 const entities = createReducer([], {
-    [actions.fetchUsersSuccess]: (_, action) => action.payload
+    [fetchUsers.fulfilled]: (_, action) => action.payload
 });
 
 const isLoading = createReducer(false, {
-  [actions.fetchUsersRequest]: () => true,
-  [actions.fetchUsersSuccess]: () => false,
-  [actions.fetchUsersError]: () => false,
+  [fetchUsers.pending]: () => true,
+  [fetchUsers.fulfilled]: () => false,
+  [fetchUsers.rejected]: () => false,
 });
 
 const error = createReducer(null, {
-  [actions.fetchUsersError]: (_, action) => action.payload,
-  [actions.fetchUsersRequest]: () => null,
+  [fetchUsers.fulfilled]: (_, action) => action.payload,
+  [fetchUsers.rejected]: () => null,
 });
 
 export default combineReducers({
